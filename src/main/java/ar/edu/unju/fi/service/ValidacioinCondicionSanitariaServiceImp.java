@@ -29,6 +29,7 @@ public class ValidacioinCondicionSanitariaServiceImp implements IValidadorCondic
 
 	}
 
+	
 	@Override
 	public ValidadorCondicionSanitaria modificar() {
 		// TODO Auto-generated method stub

@@ -34,6 +34,7 @@ public class ValidacionCondicionSanitariaDAOImp implements IValidadorCondicionSa
 		// TODO Auto-generated method stub
 		LOG.info("Se modificaron los datos de condicion sanitaria de la persona"+vcs.getPersona());
 		return vcs;
+		
 	}
 
 	@Override

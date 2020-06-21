@@ -17,5 +17,6 @@ public interface IValidadorCondicionSanitariaDAO {
 	public void eliminar();
 	
 	public ValidadorCondicionSanitaria mostrar();
+	
 
 }

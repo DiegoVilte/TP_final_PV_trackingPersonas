@@ -13,6 +13,7 @@ public interface IValidadorCondicionSanitariaService {
 	
 	public void guardar();
 	
+	
 	public ValidadorCondicionSanitaria modificar();
 	
 	public void eliminar();
