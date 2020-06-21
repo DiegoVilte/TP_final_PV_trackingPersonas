@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ar.edu.unju.fi.repository;
 
 import org.slf4j.Logger;
@@ -15,7 +12,7 @@ import ar.edu.unju.fi.model.RegistroTracking;
  * @author daniel-gnu
  *
  */
-@Repository("registroDAOImp")
+/*@Repository("registroDAOImp")
 public class RegistroTrackingDAOImp implements IRegistroTrackingDAO {
 	@Autowired
 	private RegistroTracking registroTracking;
@@ -45,4 +42,4 @@ public class RegistroTrackingDAOImp implements IRegistroTrackingDAO {
 		return registroTracking;
 	}
 
-}
+}*/

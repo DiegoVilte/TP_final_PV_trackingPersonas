@@ -15,7 +15,7 @@ import ar.edu.unju.fi.model.ValidadorCondicionSanitaria;
  * @author Diego
  *
  */
-@Repository("validacionCondicionSanitariaDAOImp")
+/*@Repository("validacionCondicionSanitariaDAOImp")
 public class ValidacionCondicionSanitariaDAOImp implements IValidadorCondicionSanitariaDAO {
 	
 	@Autowired
@@ -51,4 +51,4 @@ public class ValidacionCondicionSanitariaDAOImp implements IValidadorCondicionSa
 		return vcs;
 	}
 
-}
+}*/

@@ -1,4 +1,4 @@
-package ar.edu.unju.fi.repository;
+/*package ar.edu.unju.fi.repository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,4 +42,4 @@ public class PersonaDAOImp implements IPersonaDAO {
 		return persona;
 	}
 
-}
+}*/

@@ -13,7 +13,7 @@ import ar.edu.unju.fi.repository.IRegistroTrackingDAO;
  * @author daniel-gnu
  *
  */
-@Repository
+/*@Repository
 public class IRegistroTrackingServiceImp implements IRegistroTrackingService {
 	@Autowired
 	@Qualifier("registroTrackingDAOImpMySQL")
@@ -41,4 +41,4 @@ public class IRegistroTrackingServiceImp implements IRegistroTrackingService {
 		return registroTracking;
 	}
 
-}
+}*/

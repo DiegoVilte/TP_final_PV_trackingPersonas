@@ -14,7 +14,7 @@ import ar.edu.unju.fi.repository.IPersonaDAO;
  * @author Diego
  *
  */
-@Repository
+/*@Repository
 public class IPersonaServiceImp implements IPersonaService {
 	
 	@Autowired
@@ -47,4 +47,4 @@ public class IPersonaServiceImp implements IPersonaService {
 		return persona;
 	}
 
-}
+}*/

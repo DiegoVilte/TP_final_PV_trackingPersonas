@@ -14,7 +14,7 @@ import ar.edu.unju.fi.repository.IUsuarioDAO;
  * @author daniel-gnu
  *
  */
-@Repository
+/*@Repository
 public class IUsuarioServiceImp implements IUsuarioService {
 	@Autowired
 	@Qualifier("usuarioDAOImpMySQL")
@@ -41,4 +41,4 @@ public class IUsuarioServiceImp implements IUsuarioService {
 		Usuario usuario = iUsuario.mostrar();
 		return usuario;
 	}
-}
+}*/

@@ -13,7 +13,7 @@ import ar.edu.unju.fi.repository.IValidadorCondicionSanitariaDAO;
  * @author Diego
  *
  */
-@Repository
+/*@Repository
 public class ValidacioinCondicionSanitariaServiceImp implements IValidadorCondicionSanitariaService {
 	
 	
@@ -51,4 +51,4 @@ public class ValidacioinCondicionSanitariaServiceImp implements IValidadorCondic
 		return vcs;
 	}
 
-}
+}*/
