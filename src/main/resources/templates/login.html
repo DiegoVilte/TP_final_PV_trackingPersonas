@@ -9,20 +9,20 @@
 </head>
 <body class="container">
 
-<!-- <div th:insert="layout/header::header"></div> -->
+<div th:insert="layout/header::header"></div>
 
-<form id ="login" class="container">
-	<div class="form-group">
-		<label for="exampleInputEmail1">Ingrese Usuario</label>
-	    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-	</div>
-	<div class="form-group">
-		<label for="exampleInputPassword1">Contraceña</label>
-	    <input type="password" class="form-control" id="exampleInputPassword1">
-	</div>
-	<div class="form-group form-check"></div>
-	<button type="submit" class="btn btn-primary">Ingresar</button>
-</form>
+	<form id ="login" class="container">
+		<div class="form-group">
+			<label for="idingresousuario">Ingrese Usuario</label>
+		    <input type="text" class="form-control" id="idingresousuario">
+		</div>
+		<div class="form-group">
+			<label for="idingresocontraceña">Contraceña</label>
+		    <input type="password" class="form-control" id="idingresocontraceña">
+		</div>
+		<div class="form-group form-check"></div>
+		<button type="submit" class="btn btn-primary">Ingresar</button>
+	</form>
 
 <div th:insert="layout/footer::footer"></div>
 

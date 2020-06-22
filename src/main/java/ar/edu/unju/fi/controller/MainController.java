@@ -35,5 +35,19 @@ public class MainController {
 		//model.addAttribute("usuario", usuarioService.mostrar().getApellido());
 		return "login";
 	}
-
+	@GetMapping("registrador")
+	public String registrador(Model model)
+	{
+		return "registrador";
+	}
+	@GetMapping("consultor")
+	public String consultor(Model model)
+	{
+		return "consultor";
+	}
+	@GetMapping("gestor")
+	public String gestor(Model model)
+	{
+		return "gestor";
+	}
 }
