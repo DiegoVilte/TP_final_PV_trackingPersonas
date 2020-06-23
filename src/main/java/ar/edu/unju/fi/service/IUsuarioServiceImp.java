@@ -19,10 +19,13 @@ public class IUsuarioServiceImp implements IUsuarioService {
 	@Autowired
 	//@Qualifier("usuarioDAOImpMySQL")
 	private IUsuarioDAO iUsuario;
-
+	
+	/**
+	 * modificacion para adaptar al  nuevo metodo con parametros
+	 */
 	@Override
-	public void guardar() {
-		iUsuario.guardar();
+	public void guardar(Usuario usuario) {
+		iUsuario.guardar(usuario);
 	}
 
 	@Override

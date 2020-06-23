@@ -10,7 +10,11 @@ import ar.edu.unju.fi.model.Usuario;
  *
  */
 public interface IUsuarioService {
-	public void guardar();
+	/**
+	 * daniel , relizo modificacion de tu metodo para poder realizar el registro de usuario, agrago los parametro
+	 * @param usuario tipo  Usuario
+	 */
+	public void guardar(Usuario usuario);
 
 	public Usuario modificar();
 

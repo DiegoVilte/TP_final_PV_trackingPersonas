@@ -10,7 +10,11 @@ import ar.edu.unju.fi.model.Usuario;
  *
  */
 public interface IUsuarioDAO {
-	public void guardar();
+	/**
+	 * modificacion para el formulario de registro de usuario
+	 * @param usuario
+	 */
+	public void guardar(Usuario usuario);
 
 	public Usuario modificar();
 

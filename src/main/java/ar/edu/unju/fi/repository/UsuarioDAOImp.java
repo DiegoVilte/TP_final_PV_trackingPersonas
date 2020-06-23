@@ -21,8 +21,11 @@ public class UsuarioDAOImp implements IUsuarioDAO {
 	private Usuario usuario;
 	public static Logger LOG = LoggerFactory.getLogger(TrackingPersonasApplication.class);
 
+	/**
+	 * modificacion para el formulario de usuario
+	 */
 	@Override
-	public void guardar() {
+	public void guardar(Usuario usuario) {
 		LOG.info("el usuario fue guardado " + usuario.getApellidoReal() + ", " + usuario.getNombreReal());
 	}
 
