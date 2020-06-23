@@ -12,12 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author Diego
  *
  */
+// declaracion de la claseRegistroTracking
 public class RegistroTracking {
-	private LocalDateTime fechaHora;
+	private LocalDateTime fechaHora; // fecha de registro tracking
 	@Autowired
-	private Barrio localidad;
-	private List<Persona> personas;
-	private String detalleLugarRegistro;
+	private Barrio localidad; // localidad de registro tracking
+	private List<Persona> personas; // lista de personas de registro tracking
+	private String detalleLugarRegistro;// detalle de registro tracking
 
 //---------CONSTRUCTORES----------------------------
 	/**
