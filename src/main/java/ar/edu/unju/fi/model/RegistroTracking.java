@@ -43,7 +43,7 @@ public class RegistroTracking {
 		this.detalleLugarRegistro = detalleLugarRegistro;
 	}
 
-	// -------------METODOS ACCESORES-----------------------------
+	// -------------METODOS ACCESORES---------------------------
 	/**
 	 * @return the fechaHora
 	 */
