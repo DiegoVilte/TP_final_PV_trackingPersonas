@@ -30,6 +30,8 @@ public class Usuario {
 	@Column (name="ID")
 	private long id;
 	
+	
+	//Se crean las columnas
 	@Column (name="NOMBREUSUARIO", length = 150, nullable = true)
 	private String nombreUsuario; // nombre de usuario
 	
