@@ -3,19 +3,46 @@
  */
 package ar.edu.unju.fi.model;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
 
 /**
  * @author Diego
  *
  */
 //Declaración de la clase Usuario
-@Component
+
+//
+@Entity
+@Table (name = "usuario")
 public class Usuario {
+	
+	
+	//Se asocia a la ID como clave primaria
+	@Id
+	@GeneratedValue ( strategy = GenerationType.IDENTITY)
+	@Column (name="ID")
+	private long id;
+	
+	@Column (name="NOMBREUSUARIO", length = 150, nullable = true)
 	private String nombreUsuario; // nombre de usuario
+	
+	@Column (name="PASSWORD", length = 150, nullable = true)
 	private String password; // password de usuario
+	
+	@Column (name="NOMBREREAL", length = 150, nullable = true)
 	private String nombreReal; // nombre real de usuario
+	
+	@Column (name="APELLIDO", length = 150, nullable = true)
 	private String apellidoReal; // apellido real de uauario
+	
+	@Column (name="TIPOUSUARIO", length = 150, nullable = true)
 	private String tipoUsuario; // tipo de usuario
 
 //--------------CONSTRUCTORES-----------------//
