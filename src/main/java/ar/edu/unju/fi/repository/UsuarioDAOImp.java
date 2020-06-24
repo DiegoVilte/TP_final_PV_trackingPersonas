@@ -26,7 +26,9 @@ public class UsuarioDAOImp implements IUsuarioDAO {
 	 */
 	@Override
 	public void guardar(Usuario usuario) {
-		LOG.info("el usuario fue guardado " + usuario.getApellidoReal() + ", " + usuario.getNombreReal());
+		LOG.info("el usuario fue guardado " + usuario.getApellidoReal() + ", " + 
+				usuario.getNombreReal()+ ", " + usuario.getNombreUsuario()+ ", " +usuario.getPassword()+ ", " +
+				usuario.getTipoUsuario());
 	}
 
 	@Override
