@@ -21,27 +21,28 @@ public class UsuarioDAOImp implements IUsuarioDAO {
 	private Usuario usuario;
 	public static Logger LOG = LoggerFactory.getLogger(TrackingPersonasApplication.class);
 
-	/**
-	 * modificacion para el formulario de usuario
-	 */
+	//sobreescritura de metodo guardar de  un objeto usuario 
 	@Override
 	public void guardar(Usuario usuario) {
 		LOG.info("el usuario fue guardado " + usuario.getApellidoReal() + ", " + 
 				usuario.getNombreReal()+ ", " + usuario.getNombreUsuario()+ ", " +usuario.getPassword()+ ", " +
 				usuario.getTipoUsuario());
 	}
-
+	
+	//sobreescritura de metodo modificar de  un objeto usuario
 	@Override
 	public Usuario modificar() {
 		LOG.info("los datos del usuario modificados");
 		return usuario;
 	}
-
+	
+	//sobreescritura de metodo eliminar de  un objeto usuario
 	@Override
 	public void eliminar() {
 		LOG.info("el usuario fue eliminado");
 	}
-
+	
+	//sobreescritura de metodo eliminar de  un objeto usuario
 	@Override
 	public Usuario mostrar() {
 		LOG.info("Mostrar datos del usuario");

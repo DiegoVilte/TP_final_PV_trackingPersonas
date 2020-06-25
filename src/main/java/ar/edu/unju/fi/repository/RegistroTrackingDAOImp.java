@@ -14,28 +14,34 @@ import ar.edu.unju.fi.model.RegistroTracking;
  */
 /*@Repository("registroDAOImp")
 public class RegistroTrackingDAOImp implements IRegistroTrackingDAO {
+
+	//autoinyeccion de objeto registroTracking
 	@Autowired
 	private RegistroTracking registroTracking;
 	public Logger LOG = LoggerFactory.getLogger(TrackingPersonasApplication.class);
-
+	
+	//sobreescritura de metodo guardarr de  un objeto registroTracking
 	@Override
 	public void guardar() {
 		LOG.info("El registro tracking fue guardado " + registroTracking.getLocalidad() + ", "
 				+ registroTracking.getFechaHora() + ", " + registroTracking.getDetalleLugarRegistro() + ", "
 				+ registroTracking.getPersonas());
 	}
-
+	
+	//sobreescritura de metodo modificar de  un objeto registroTracking
 	@Override
 	public RegistroTracking modificar() {
 		LOG.info("los datos de registro tracking fueron modificados");
 		return registroTracking;
 	}
-
+	
+	//sobreescritura de metodo eliminar  de  un objeto registroTracking
 	@Override
 	public void eliminar() {
 		LOG.info("los datos de registro tracking fueron eliminados");
 	}
-
+	
+		//sobreescritura de metodo mostrar de  un objeto registroTrakiing
 	@Override
 	public RegistroTracking mostrar() {
 		LOG.info("mostrar registro tracking");
