@@ -4,6 +4,12 @@
 package ar.edu.unju.fi.model;
 
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +20,17 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 // declaracion de la claseRegistroTracking
 public class RegistroTracking {
+	
+	//Se asocia a la ID como clave primaria
+	@Id
+	@GeneratedValue ( strategy = GenerationType.IDENTITY)
+	@Column (name="ID")
+	private long id;
 	private LocalDateTime fechaHora; // fecha de registro tracking
 	@Autowired
 	private Barrio localidad; // localidad de registro tracking
-	private List<Persona> personas; // lista de personas de registro tracking
+	@Autowired
+	private List<ValidadorCondicionSanitaria> vcs; // lista de validaciones de condicion sanitaria
 	private String detalleLugarRegistro;// detalle de registro tracking
 
 //---------CONSTRUCTORES----------------------------
@@ -31,15 +44,14 @@ public class RegistroTracking {
 	/**
 	 * @param fechaHora
 	 * @param localidad
-	 * @param personas
+	 * @param vcs
 	 * @param detalleLugarRegistro
 	 */
-	public RegistroTracking(LocalDateTime fechaHora, Barrio localidad, List<Persona> personas,
+	public RegistroTracking(LocalDateTime fechaHora, Barrio localidad, List<ValidadorCondicionSanitaria> vcs,
 			String detalleLugarRegistro) {
-		super();
 		this.fechaHora = fechaHora;
 		this.localidad = localidad;
-		this.personas = personas;
+		this.vcs = vcs;
 		this.detalleLugarRegistro = detalleLugarRegistro;
 	}
 
@@ -50,6 +62,7 @@ public class RegistroTracking {
 	public LocalDateTime getFechaHora() {
 		return fechaHora;
 	}
+
 
 	/**
 	 * @param fechaHora the fechaHora to set
@@ -73,20 +86,6 @@ public class RegistroTracking {
 	}
 
 	/**
-	 * @return the personas
-	 */
-	public List<Persona> getPersonas() {
-		return personas;
-	}
-
-	/**
-	 * @param personas the personas to set
-	 */
-	public void setPersonas(List<Persona> personas) {
-		this.personas = personas;
-	}
-
-	/**
 	 * @return the detalleLugarRegistro
 	 */
 	public String getDetalleLugarRegistro() {
@@ -99,5 +98,36 @@ public class RegistroTracking {
 	public void setDetalleLugarRegistro(String detalleLugarRegistro) {
 		this.detalleLugarRegistro = detalleLugarRegistro;
 	}
+
+	/**
+	 * @return the vcs
+	 */
+	public List<ValidadorCondicionSanitaria> getVcs() {
+		return vcs;
+	}
+
+	/**
+	 * @param vcs the vcs to set
+	 */
+	public void setVcs(List<ValidadorCondicionSanitaria> vcs) {
+		this.vcs = vcs;
+	}
+
+	/**
+	 * @return the id
+	 */
+	public long getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	
+	
 
 }

@@ -3,6 +3,11 @@
  */
 package ar.edu.unju.fi.model;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -10,6 +15,12 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  */
 public class ValidadorCondicionSanitaria {
+	
+	//Se asocia a la ID como clave primaria
+	@Id
+	@GeneratedValue ( strategy = GenerationType.IDENTITY)
+	@Column (name="ID")
+	private long id;
 	@Autowired
 	private Persona persona;
 	private boolean usaTapabocas;
@@ -71,6 +82,18 @@ public class ValidadorCondicionSanitaria {
 	public void setEstaAcompañado(boolean estaAcompañado) {
 		this.estaAcompañado = estaAcompañado;
 	}
+	/**
+	 * @return the id
+	 */
+	public long getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(long id) {
+		this.id = id;
+	}
 	
-
+	
 }
