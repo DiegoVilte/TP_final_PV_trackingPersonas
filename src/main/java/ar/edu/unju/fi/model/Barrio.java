@@ -8,10 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author Diego
  *
  */
+@Component
 public class Barrio {
 	
 	//Se asocia a la ID como clave primaria

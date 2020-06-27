@@ -9,11 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @author Diego
  *
  */
+@Component
 public class ValidadorCondicionSanitaria {
 	
 	//Se asocia a la ID como clave primaria

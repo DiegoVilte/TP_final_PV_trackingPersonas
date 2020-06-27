@@ -13,11 +13,13 @@ import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @author Diego
  *
  */
+@Component
 // declaracion de la claseRegistroTracking
 public class RegistroTracking {
 	
