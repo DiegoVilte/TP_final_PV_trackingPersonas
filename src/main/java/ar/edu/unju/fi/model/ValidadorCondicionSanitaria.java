@@ -4,9 +4,11 @@
 package ar.edu.unju.fi.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,18 +17,23 @@ import org.springframework.stereotype.Component;
  * @author Diego
  *
  */
-@Component
+//@Component
+@Entity
+@Table (name = "validadorCS")
 public class ValidadorCondicionSanitaria {
 	
 	//Se asocia a la ID como clave primaria
 	@Id
 	@GeneratedValue ( strategy = GenerationType.IDENTITY)
-	@Column (name="ID")
+	@Column (name="ID_VCS")
 	private long id;
 	@Autowired
 	private Persona persona;
+	@Column (name="TAPA_BOCA")
 	private boolean usaTapabocas;
+	@Column(name="CUMPLE_TERM_DNI")
 	private boolean cumpleTerminacionDNI;
+	@Column(name="ESTA_ACOMPAÑADO")
 	private boolean estaAcompañado;
 //-------------CONSTRUCTORES---------------------
 	/**

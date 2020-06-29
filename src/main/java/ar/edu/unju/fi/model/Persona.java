@@ -16,14 +16,14 @@ import org.springframework.stereotype.Component;
  * @author Diego
  *
  */
-@Component
+//@Component
 @Entity
 @Table (name = "persona")
 public class Persona {
 
 	@Id
 	@GeneratedValue ( strategy = GenerationType.IDENTITY)
-	@Column (name="ID")
+	@Column (name="ID_PERSONA")
 	private long id;
 	
 	@Column (name = "DOCUMENTO", length = 10, nullable = true)

@@ -4,9 +4,11 @@
 package ar.edu.unju.fi.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
@@ -14,14 +16,17 @@ import org.springframework.stereotype.Component;
  * @author Diego
  *
  */
-@Component
+//@Component
+@Entity
+@Table (name="barrios")
 public class Barrio {
 	
 	//Se asocia a la ID como clave primaria
 	@Id
 	@GeneratedValue ( strategy = GenerationType.IDENTITY)
-	@Column (name="ID")
+	@Column (name="ID_BARRIO")
 	private long id;
+	@Column(name="NOMBRE")
 	private String nombre;
 //-------CONSTRUCTORES---------------
 

@@ -21,9 +21,9 @@ import org.springframework.stereotype.Component;
 //Declaración de la clase Usuario
 
 //
-@Component
+//@Component
 @Entity
-//@Table (name = "usuario")
+@Table (name = "usuario")
 public class Usuario {
 	
 	
@@ -32,7 +32,7 @@ public class Usuario {
 	//@GeneratedValue ( strategy = GenerationType.IDENTITY)
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
 	
-	@Column// (name="ID")
+	@Column (name="ID_USUARIO")
 	private long id;
 	
 	

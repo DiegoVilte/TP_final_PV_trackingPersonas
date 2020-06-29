@@ -6,9 +6,11 @@ package ar.edu.unju.fi.model;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import java.time.LocalDateTime;
 
@@ -20,14 +22,17 @@ import org.springframework.stereotype.Component;
  *
  */
 @Component
+@Entity
+@Table (name = "registrosTrackins")
 // declaracion de la claseRegistroTracking
 public class RegistroTracking {
 	
 	//Se asocia a la ID como clave primaria
 	@Id
 	@GeneratedValue ( strategy = GenerationType.IDENTITY)
-	@Column (name="ID")
+	@Column (name="ID_REGISTROTRACKING")
 	private long id;
+	@Column(name="FECHA_HORA")
 	private LocalDateTime fechaHora; // fecha de registro tracking
 	@Autowired
 	private Barrio localidad; // localidad de registro tracking
