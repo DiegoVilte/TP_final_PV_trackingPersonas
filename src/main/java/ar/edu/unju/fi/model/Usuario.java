@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 //Declaración de la clase Usuario
 
 //
-//@Component
+@Component
 @Entity
 @Table (name = "usuario")
 public class Usuario {

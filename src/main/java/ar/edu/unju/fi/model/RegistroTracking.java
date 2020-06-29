@@ -3,13 +3,19 @@
  */
 package ar.edu.unju.fi.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import java.time.LocalDateTime;
@@ -35,9 +41,14 @@ public class RegistroTracking {
 	@Column(name="FECHA_HORA")
 	private LocalDateTime fechaHora; // fecha de registro tracking
 	@Autowired
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "ID_BARRIO")
 	private Barrio localidad; // localidad de registro tracking
-	@Autowired
-	private List<ValidadorCondicionSanitaria> vcs; // lista de validaciones de condicion sanitaria
+	
+	@OneToMany(mappedBy ="registrosTracking")//, cascade = CascadeType.ALL)
+	private List<ValidadorCondicionSanitaria> vcs=new ArrayList<>(); // lista de validaciones de condicion sanitaria
+	
+	@Column (name="DETALLE_LUGAR_REGISTRO")
 	private String detalleLugarRegistro;// detalle de registro tracking
 
 //---------CONSTRUCTORES----------------------------
