@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  * @author Diego
  *
  */
-//@Component
+@Component
 @Entity
 @Table (name="barrios")
 public class Barrio {

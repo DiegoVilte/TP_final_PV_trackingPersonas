@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -37,6 +39,9 @@ public class Persona {
 	
 	@Column (name = "NACIONALIDAD", length = 10, nullable = true)
 	private String nacionalidad;
+	@OneToMany
+	@JoinColumn(name="ID_VCS")
+	private long id_vcs;
 
 //---------------CONSTRUCTORES----------------------
 
@@ -47,19 +52,26 @@ public class Persona {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
 	/**
-	 * @param documento
-	 * @param apellido
-	 * @param nombres
-	 * @param nacionalidad
-	 */
-	public Persona(String documento, String apellido, String nombres, String nacionalidad) {
-		super();
-		this.documento = documento;
-		this.apellido = apellido;
-		this.nombres = nombres;
-		this.nacionalidad = nacionalidad;
-	}
+ * @param id
+ * @param documento
+ * @param apellido
+ * @param nombres
+ * @param nacionalidad
+ * @param id_vcs
+ */
+public Persona(long id, String documento, String apellido, String nombres, String nacionalidad, long id_vcs) {
+	this.id = id;
+	this.documento = documento;
+	this.apellido = apellido;
+	this.nombres = nombres;
+	this.nacionalidad = nacionalidad;
+	this.id_vcs = id_vcs;
+}
+
+
 
 	// -----------METODOS ACCESORES----------------------
 
@@ -125,6 +137,24 @@ public class Persona {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+
+
+	/**
+	 * @return the id_vcs
+	 */
+	public long getId_vcs() {
+		return id_vcs;
+	}
+
+
+
+	/**
+	 * @param id_vcs the id_vcs to set
+	 */
+	public void setId_vcs(long id_vcs) {
+		this.id_vcs = id_vcs;
 	}
 
 	
