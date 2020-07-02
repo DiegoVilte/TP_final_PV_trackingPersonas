@@ -32,8 +32,8 @@ public class ValidadorCondicionSanitaria {
 	@GeneratedValue ( strategy = GenerationType.IDENTITY)
 	@Column (name="ID_VCS")
 	private long id;
-	@Autowired
-	private Persona persona;
+	//@Autowired
+	//private Persona persona;
 	@Column (name="TAPA_BOCA")
 	private boolean usaTapabocas;
 	@Column(name="CUMPLE_TERM_DNI")
@@ -57,15 +57,15 @@ public class ValidadorCondicionSanitaria {
 	/**
 	 * @return the persona
 	 */
-	public Persona getPersona() {
-		return persona;
-	}
+	//public Persona getPersona() {
+	//	return persona;
+	//}
 	/**
 	 * @param persona the persona to set
 	 */
-	public void setPersona(Persona persona) {
-		this.persona = persona;
-	}
+	//public void setPersona(Persona persona) {
+	//	this.persona = persona;
+	//}
 	/**
 	 * @return the usaTapabocas
 	 */

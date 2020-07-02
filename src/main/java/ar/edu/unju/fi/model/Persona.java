@@ -39,9 +39,9 @@ public class Persona {
 	
 	@Column (name = "NACIONALIDAD", length = 10, nullable = true)
 	private String nacionalidad;
-	@OneToMany
-	@JoinColumn(name="ID_VCS")
-	private long id_vcs;
+	//@OneToMany
+	//@JoinColumn(name="ID_VCS")
+	//private long id_vcs;
 
 //---------------CONSTRUCTORES----------------------
 
@@ -68,7 +68,7 @@ public Persona(long id, String documento, String apellido, String nombres, Strin
 	this.apellido = apellido;
 	this.nombres = nombres;
 	this.nacionalidad = nacionalidad;
-	this.id_vcs = id_vcs;
+	//this.id_vcs = id_vcs;
 }
 
 
@@ -144,18 +144,18 @@ public Persona(long id, String documento, String apellido, String nombres, Strin
 	/**
 	 * @return the id_vcs
 	 */
-	public long getId_vcs() {
-		return id_vcs;
-	}
+	//public long getId_vcs() {
+	//	return id_vcs;
+	//}
 
 
 
 	/**
 	 * @param id_vcs the id_vcs to set
 	 */
-	public void setId_vcs(long id_vcs) {
-		this.id_vcs = id_vcs;
-	}
+	//public void setId_vcs(long id_vcs) {
+	//	this.id_vcs = id_vcs;
+	//}
 
 	
 }

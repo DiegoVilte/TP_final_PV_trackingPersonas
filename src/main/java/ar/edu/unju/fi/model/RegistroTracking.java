@@ -26,6 +26,7 @@ import org.springframework.stereotype.Component;
  * @author Diego
  *
  */
+
 @Component
 @Entity
 @Table (name = "registrosTrackins")
@@ -44,8 +45,8 @@ public class RegistroTracking {
 	@JoinColumn(name = "ID_BARRIO")
 	private Barrio localidad; // localidad de registro tracking
 	
-	@OneToMany(mappedBy ="registrosTracking")//, cascade = CascadeType.ALL)
-	private List<ValidadorCondicionSanitaria> vcs=new ArrayList<>(); // lista de validaciones de condicion sanitaria
+	//@OneToMany(mappedBy ="registrosTracking")//, cascade = CascadeType.ALL)
+	//private List<ValidadorCondicionSanitaria> vcs=new ArrayList<>(); // lista de validaciones de condicion sanitaria
 	
 	@Column (name="DETALLE_LUGAR_REGISTRO")
 	private String detalleLugarRegistro;// detalle de registro tracking
@@ -68,7 +69,7 @@ public class RegistroTracking {
 			String detalleLugarRegistro) {
 		this.fechaHora = fechaHora;
 		this.localidad = localidad;
-		this.vcs = vcs;
+		//this.vcs = vcs;
 		this.detalleLugarRegistro = detalleLugarRegistro;
 	}
 
@@ -119,16 +120,16 @@ public class RegistroTracking {
 	/**
 	 * @return the vcs
 	 */
-	public List<ValidadorCondicionSanitaria> getVcs() {
-		return vcs;
-	}
+	//public List<ValidadorCondicionSanitaria> getVcs() {
+	//	return vcs;
+	//}
 
 	/**
 	 * @param vcs the vcs to set
 	 */
-	public void setVcs(List<ValidadorCondicionSanitaria> vcs) {
-		this.vcs = vcs;
-	}
+	//public void setVcs(List<ValidadorCondicionSanitaria> vcs) {
+	//	this.vcs = vcs;
+	//}
 
 	/**
 	 * @return the id

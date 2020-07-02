@@ -28,12 +28,17 @@ public class Usuario {
 	
 	
 	//Se asocia a la ID como clave primaria
-	@Id
+	//@Id
 	//@GeneratedValue ( strategy = GenerationType.IDENTITY)
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+	//@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
 	
-	@Column (name="ID_USUARIO")
-	private long id;
+	/**@Column (name="ID_USUARIO")
+	private long id;*/
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID")	
+	private Long id;
 	
 	
 	//Se crean las columnas
