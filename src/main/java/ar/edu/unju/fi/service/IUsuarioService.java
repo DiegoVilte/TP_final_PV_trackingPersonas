@@ -18,7 +18,7 @@ public interface IUsuarioService {
 
 	public Usuario modificar(Usuario usuario) throws Exception;
 
-	public void eliminar(long id);
+	public void eliminar(Long id);
 
 	public Usuario mostrar();
 	

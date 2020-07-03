@@ -34,7 +34,7 @@ public class UsuarioServiceImp implements IUsuarioService {
 	}
 
 	@Override
-	public void eliminar(long id) {
+	public void eliminar(Long id) {
 		// TODO Auto-generated method stub
 		iUsuario.deleteById(id);
 	}

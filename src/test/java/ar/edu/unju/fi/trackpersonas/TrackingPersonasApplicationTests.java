@@ -68,8 +68,11 @@ class TrackingPersonasApplicationTests {
 		//usuarioServi.modificar(usuario); //no anda todavia
 		//usuarioServi.eliminar(3);  //funciona ccorrectamente
 		
-		Barrio barrio = new Barrio();
-		
+		/**Barrio barrio = new Barrio();
+		barrio.setNombre("San Pedrito");
+		barrioServi.crearBarrio(barrio); //funciona correctamente
+		*/
+		//barrioServi.borrarBarrio(1); //funciona correctamente
 		
 		
 		                      //**************DAOS****************
