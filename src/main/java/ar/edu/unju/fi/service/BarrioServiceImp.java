@@ -19,11 +19,19 @@ import ar.edu.unju.fi.repository.IBarrioDAO;
 public class BarrioServiceImp implements IBarrioService {
 
 	@Autowired
-	IBarrioDAO barrioDAO;
+	private IBarrioDAO barrioDAO;
 	@Override
 	public List<Barrio> obtenerBarrios() {
 		// TODO Auto-generated method stub
 		return barrioDAO.findAll();
+	}
+	@Override
+	public void crearBarrio(Barrio barrio) {
+		barrioDAO.save(barrio);
+	}
+	@Override
+	public void borrarBarrio(long id) {
+		barrioDAO.deleteById(id);
 	}
 
 }

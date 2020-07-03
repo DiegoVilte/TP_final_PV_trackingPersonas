@@ -14,7 +14,7 @@ import ar.edu.unju.fi.model.Barrio;
  */
 
 public interface IBarrioService {
-	
+	public void crearBarrio(Barrio barrio);
+	public void borrarBarrio(long id);
 	public List<Barrio> obtenerBarrios();
-
 }

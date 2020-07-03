@@ -4,6 +4,7 @@
 package ar.edu.unju.fi.service;
 
 import ar.edu.unju.fi.model.Persona;
+import ar.edu.unju.fi.model.Usuario;
 
 /**
  * @author Diego
@@ -11,12 +12,16 @@ import ar.edu.unju.fi.model.Persona;
  */
 public interface IPersonaService {
 	
-	public void guardar();
+	public void guardar(Persona persona);
 
-	public Persona modificar();
+	public Persona modificar(Persona persona) throws Exception;
 
-	public void eliminar();
+	public void eliminar(long id);
 
-	public Persona mostrar();
+	public Persona mostrar(long id);
+	
+	public void mapearPersona(Persona persona, Persona modificado);
+	
+	public Persona buscarPersona(Long id) throws Exception;
 
 }

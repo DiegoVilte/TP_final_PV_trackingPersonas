@@ -16,5 +16,4 @@ public interface IPersonaDAO extends JpaRepository<Persona, Long>{
 	public void elimina();
 	public Persona mostrar();
 	*/
-
 }

@@ -12,12 +12,10 @@ import ar.edu.unju.fi.model.ValidadorCondicionSanitaria;
  *
  */
 public interface IValidadorCondicionSanitariaDAO extends JpaRepository<ValidadorCondicionSanitaria, Long>{
+	
 	/*public void guardar();
-	
 	public ValidadorCondicionSanitaria modificar();
-	
 	public void eliminar();
-	
 	public ValidadorCondicionSanitaria mostrar();
 	*/
 
