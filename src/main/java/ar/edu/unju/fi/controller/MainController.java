@@ -47,51 +47,5 @@ public class MainController {
 	{
 		return "consultor";
 	}
-	@GetMapping("gestor")
-	public String gestor(Model model) {
-		//model.addAttribute("usuario", usuarioService.mostrar().getApellido());
-		/**
-		 * se crea un nuevo usuario , se lo manda ala pajina como "formusuario"
-		 */
-		model.addAttribute("formusuario", new Usuario());
-		model.addAttribute("usuarios", usuarioService.listar());
-		model.addAttribute("formTab", "active");
-		return "gestor";
-	}
-	/**
-	 * PostMapping se ejecuta el metodo cuando se da al boton 
-	 * @param usuario se usa para guardar los datos que vienen de la pajina mediante @modelAttribute formusuario
-	 * @param model 
-	 * @return devuelve de nuevo la pajina html
-	 */
-	@PostMapping("/gestor")
-	public String crearUsuario(@ModelAttribute("formusuario") Usuario usuario, ModelMap model) {
-		/**
-		 * guarda el usuario
-		 */
-		usuarioService.guardar(usuario);
-		/**
-		 * se crea un nuevo usuario para que los campos vuelvan a estar en blanco
-		 */
-		model.addAttribute("formusuario", new Usuario());
-		model.addAttribute("usuarios", usuarioService.listar());
-		model.addAttribute("listTab", "active");
-		return "gestor";
-	}
-	/**
-	 * elimina un usuario de la BD
-	 * @param model 
-	 * @param id toma el id del usuario que se va a eliminar
-	 * @return devuelve la pagina de gestor mediante el metodo gestor()
-	 */
-	@GetMapping("/eliminarUsuario/{id}")
-	public String eliminarUsuario(Model model, @PathVariable(name="id") Long id) {
-		try {
-			usuarioService.eliminar(id); //si no tiene error elimina el usuario
-		}
-		catch(Exception e){
-			model.addAttribute("listErrorMessage",e.getMessage()); //si ocurre un error se muestra mensaje
-		}			
-		return gestor(model);
-	}
+	
 }
