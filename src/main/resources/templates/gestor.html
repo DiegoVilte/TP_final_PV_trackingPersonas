@@ -13,100 +13,175 @@
 	<div th:insert="layout/header::header"></div>
 	
 	
-	<nav>
-		<ul class="nav nav-tabs" id="myTab" role="tablist">
-	  		<li class="nav-item" role="presentation">
-	    		<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
-	    		 role="tab" aria-controls="home" aria-selected="true">agregar</a>
-	  		</li>
-	  		<li class="nav-item" role="presentation">
-	    		<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" 
-	    		role="tab" aria-controls="profile" aria-selected="false">usuarios</a>
-	  		</li>
-	  		<li class="nav-item" role="presentation">
-	    		<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" 
-	    		role="tab" aria-controls="contact" aria-selected="false">barrios</a>
-	  		</li>
-		</ul>
-	</nav>
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="nav-item">
+			<a id="formulario-tab"	th:classappend="${formTab}" class="nav-link" href="#formulario"
+			data-toggle="tab" role="tab" aria-controls="formulario"	aria-selected="true">Formulario Usuario</a></li>
+		<li class="nav-item">
+			<a id="lista-tab" class="nav-link" th:classappend="${listTab}" href="#lista" data-toggle="tab"
+			role="tab" aria-controls="lista" aria-selected="false">Lista de Usuarios</a></li>
+		<li class="nav-item">
+			<a id="formulario-tab2"	th:classappend="${formBarrio}" class="nav-link" href="#formularioB"
+			data-toggle="tab" role="tab" aria-controls="formularioB"	aria-selected="true">Formulario Barrio</a></li>
+		<li class="nav-item">
+			<a id="lista-tab2" class="nav-link" th:classappend="${listBarrio}" href="#listaB" data-toggle="tab"
+			role="tab" aria-controls="listaB" aria-selected="false">Lista de Barrios</a></li>
+	</ul>
 	
 	
 	<!-- div para contener el formulario -->
-	<h3>Agregar Usuario</h3>
-	<div>
-		<div class="col">
-			<!-- form con th:object para trabajr sobre el obejto formusuario que es un objeto Usuario, th:action accion a 
-			ejecutar cuando se de click en el boton y busca el postMapint con ese identificador -->
-			<form class="was-validated" role="form" th:object="${formusuario}" th:action="@{/gestor}" method="post">
-			<!--<form class="container" th:object="${usuario}" th:action="@{/gestor}" method="post">-->
-			  <div class="form-row">
-			  	<!-- div con class col-md- mb para estableces el tamaño que ocupara en la pajina -->
-			    <div class="col-md-6 mb-3">
-			    	<!-- nombre que mostrara alado del input para guiar -->
-			      <label>Nombre de Usuario:</label>
-			      <!-- input que recibe texto, th:field es para guardar en el objeto lo puesto en input -->
-			      <input class="form-control is-invalid" type="text" th:field="${formusuario.nombreUsuario}" required>		      
-			    </div>
-			  </div>
-			  <div class="form-row">
-			  	<!-- div con class col-md- mb para estableces el tamaño que ocupara en la pajina -->
-			    <div class="col-md-6 mb-3">
-			    	<!-- nombre que mostrara alado del input para guiar -->
-			      <label>Contraceña:</label>
-			      <!-- input que recibe texto, th:field es para guardar en el objeto lo puesto en input -->
-			      <input type="text" class="form-control is-invalid" th:field="${formusuario.password}" required>		      
-			    </div>
-			  </div>
-			  <div class="form-row">
-			  	<!-- div con class col-md- mb para estableces el tamaño que ocupara en la pajina -->
-			    <div class="col-md-6 mb-3">
-			    	<!-- nombre que mostrara alado del input para guiar -->
-			      <label>Apellido:</label>
-			      <!-- input que recibe texto, th:field es para guardar en el objeto lo puesto en input -->
-			      <input type="text" class="form-control is-invalid" th:field="${formusuario.apellidoReal}" required>		      
-			    </div>
-			  </div>
-			  <div class="form-row">
-			  	<!-- div con class col-md- mb para estableces el tamaño que ocupara en la pajina -->
-			    <div class="col-md-6 mb-3">
-			    	<!-- nombre que mostrara alado del input para guiar -->
-			      <label>Nombre:</label>
-			      <!-- input que recibe texto, th:field es para guardar en el objeto lo puesto en input -->
-			      <input type="text" class="form-control is-invalid" th:field="${formusuario.nombreReal}" required>		      
-			    </div>
-			  </div>
-			  
-			  
-			  <div class="form-group row" >
-				<label class="col-lg-3 col-form-label form-control-label">Tipo de Usuario:</label>
-				<div class="col-lg-9">
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
-	                         th:field="${formusuario.tipoUsuario}" value="REGISTRADOR"	checked="checked" required> 
-						<label class="form-check-label"	for="gridRadios1">REGISTRADOR</label>
+	
+	
+	<div class="tab-content">
+			<div class="tab-pane fade show" id="formulario"	th:classappend="${formTab}" role="tabpanel"	aria-labelledby="formulario-tab">
+				<div class="card">
+					<div class="card-header">
+						<h4>Usuarios</h4>
 					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="CONSULTOR"
-														th:field="${formusuario.tipoUsuario}" required> 
-						<label	class="form-check-label" for="gridRadios2">CONSULTOR</label>
-					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" value="ADMIN"
-														th:field="${formusuario.tipoUsuario}" required> 
-						<label	class="form-check-label" for="gridRadios3">ADMIN</label>
+					<div class="card-body">
+					<!-- div para contener el formulario -->
+						<h3>Agregar Usuario</h3>
+						<div>
+							<div class="col">
+								<!-- form con th:object para trabajr sobre el obejto formusuario que es un objeto Usuario, th:action accion a 
+								ejecutar cuando se de click en el boton y busca el postMapint con ese identificador -->
+								<form class="was-validated" role="form" th:object="${formusuario}" th:action="@{/gestor}" method="post">
+								<!--<form class="container" th:object="${usuario}" th:action="@{/gestor}" method="post">-->
+								  <div class="form-row">
+								  	<!-- div con class col-md- mb para estableces el tamaño que ocupara en la pajina -->
+								    <div class="col-md-6 mb-3">
+								    	<!-- nombre que mostrara alado del input para guiar -->
+								      <label>Nombre de Usuario:</label>
+								      <!-- input que recibe texto, th:field es para guardar en el objeto lo puesto en input -->
+								      <input class="form-control is-invalid" type="text" th:field="${formusuario.nombreUsuario}" required>		      
+								    </div>
+								  </div>
+								  <div class="form-row">
+								  	<!-- div con class col-md- mb para estableces el tamaño que ocupara en la pajina -->
+								    <div class="col-md-6 mb-3">
+								    	<!-- nombre que mostrara alado del input para guiar -->
+								      <label>Contraceña:</label>
+								      <!-- input que recibe texto, th:field es para guardar en el objeto lo puesto en input -->
+								      <input type="text" class="form-control is-invalid" th:field="${formusuario.password}" required>		      
+								    </div>
+								  </div>
+								  <div class="form-row">
+								  	<!-- div con class col-md- mb para estableces el tamaño que ocupara en la pajina -->
+								    <div class="col-md-6 mb-3">
+								    	<!-- nombre que mostrara alado del input para guiar -->
+								      <label>Apellido:</label>
+								      <!-- input que recibe texto, th:field es para guardar en el objeto lo puesto en input -->
+								      <input type="text" class="form-control is-invalid" th:field="${formusuario.apellidoReal}" required>		      
+								    </div>
+								  </div>
+								  <div class="form-row">
+								  	<!-- div con class col-md- mb para estableces el tamaño que ocupara en la pajina -->
+								    <div class="col-md-6 mb-3">
+								    	<!-- nombre que mostrara alado del input para guiar -->
+								      <label>Nombre:</label>
+								      <!-- input que recibe texto, th:field es para guardar en el objeto lo puesto en input -->
+								      <input type="text" class="form-control is-invalid" th:field="${formusuario.nombreReal}" required>		      
+								    </div>
+								  </div>
+								  
+								  
+								  <div class="form-group row" >
+									<label class="col-lg-3 col-form-label form-control-label">Tipo de Usuario:</label>
+									<div class="col-lg-9">
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
+						                         th:field="${formusuario.tipoUsuario}" value="REGISTRADOR"	checked="checked" required> 
+											<label class="form-check-label"	for="gridRadios1">REGISTRADOR</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="CONSULTOR"
+																			th:field="${formusuario.tipoUsuario}" required> 
+											<label	class="form-check-label" for="gridRadios2">CONSULTOR</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" value="ADMIN"
+																			th:field="${formusuario.tipoUsuario}" required> 
+											<label	class="form-check-label" for="gridRadios3">ADMIN</label>
+										</div>
+									</div>
+								  </div>
+								  
+								  
+								  <!-- submit al hacer click pasa los datos al controller -->
+								  <button class="btn btn-primary" type="submit">agregar usuario</button>
+								</form>
+							</div>
+						</div>					
+
 					</div>
 				</div>
-			  </div>
-			  
-			  
-			  <!-- submit al hacer click pasa los datos al controller -->
-			  <button class="btn btn-primary" type="submit">agregar usuario</button>
-			</form>
-		</div>
-		<div class="col">
-			<h3>Agregar barrio</h3>
+			</div>
+			<div class="tab-pane fade show" id="lista" role="tabpanel" th:classappend="${listTab}" aria-labelledby="lista-tab">
+				<div class="card">
+					<div class="card-header">
+						<h4>Listado de Usuarios</h4>
+					</div>
+					<div class="card-body">
+						<table class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">ID</th>
+									<th scope="col">Nombre de Usuario</th>
+									<th scope="col">Nombre</th>
+									<th scope="col">Apellido</th>
+									<th scope="col">Tipo</th>
+									<th scope="col">borrar</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each = "usuario : ${usuarios}">
+									<td th:text="${usuario.id}"></td>
+									<td th:text="${usuario.nombreUsuario}"></td>
+									<td th:text="${usuario.nombreReal}"></td>
+									<td th:text="${usuario.apellidoReal}"></td>
+									<td th:text="${usuario.tipoUsuario}"></td>
+									<td><button href="#" th:onclick="'javascript:confirmarEliminar(\''+${usuario.id}+'\');'">borrar</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>	
+	</div>
+	
+	
+	
+	
+	<div class="modal fade" id="modalBorrar" tabindex="-1"	role="dialog" aria-labelledby="borrarTitulo"	aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="borrarTitulo">Confirmar Eliminacion</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+					<input type="hidden" id="imputId"/>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"	data-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-primary" th:onclick="eliminarUsuario()">Borrar Usuario</button>
+				</div>
+			</div>
 		</div>
 	</div>
+	
+<script type="text/javascript">
+function confirmarEliminar(id){
+	$('#modalBorrar').modal('show');
+	$("#imputId").val(id);
+}
+
+function eliminarUsuario(){
+	var id = $("#imputId").val();
+    window.location = "eliminarUsuario/"+id;
+}
+</script>	
+	
 	
 	
 <div th:insert="layout/footer::footer"></div>

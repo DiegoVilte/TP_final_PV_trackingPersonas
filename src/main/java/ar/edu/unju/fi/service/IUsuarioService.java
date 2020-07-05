@@ -3,6 +3,7 @@
  */
 package ar.edu.unju.fi.service;
 
+import ar.edu.unju.fi.model.Persona;
 import ar.edu.unju.fi.model.Usuario;
 
 /**
@@ -20,7 +21,7 @@ public interface IUsuarioService {
 
 	public void eliminar(Long id);
 
-	public Usuario mostrar();
+	public Iterable<Usuario> listar();
 	
 	public void mapearUsuario(Usuario usuario, Usuario modificado);
 	

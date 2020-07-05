@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -53,6 +54,8 @@ public class MainController {
 		 * se crea un nuevo usuario , se lo manda ala pajina como "formusuario"
 		 */
 		model.addAttribute("formusuario", new Usuario());
+		model.addAttribute("usuarios", usuarioService.listar());
+		model.addAttribute("formTab", "active");
 		return "gestor";
 	}
 	/**
@@ -71,6 +74,24 @@ public class MainController {
 		 * se crea un nuevo usuario para que los campos vuelvan a estar en blanco
 		 */
 		model.addAttribute("formusuario", new Usuario());
+		model.addAttribute("usuarios", usuarioService.listar());
+		model.addAttribute("listTab", "active");
 		return "gestor";
+	}
+	/**
+	 * elimina un usuario de la BD
+	 * @param model 
+	 * @param id toma el id del usuario que se va a eliminar
+	 * @return devuelve la pagina de gestor mediante el metodo gestor()
+	 */
+	@GetMapping("/eliminarUsuario/{id}")
+	public String eliminarUsuario(Model model, @PathVariable(name="id") Long id) {
+		try {
+			usuarioService.eliminar(id); //si no tiene error elimina el usuario
+		}
+		catch(Exception e){
+			model.addAttribute("listErrorMessage",e.getMessage()); //si ocurre un error se muestra mensaje
+		}			
+		return gestor(model);
 	}
 }

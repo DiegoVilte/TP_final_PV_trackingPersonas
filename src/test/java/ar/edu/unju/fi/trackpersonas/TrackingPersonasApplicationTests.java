@@ -43,31 +43,31 @@ class TrackingPersonasApplicationTests {
 	@Test
 	void contextLoads() throws Exception {
 		
-		//Persona persona = new Persona();
-		/**
-		persona.setApellido("per2mmmm");
-		persona.setDocumento("1111");
-		persona.setNacionalidad("22222");
-		persona.setNombres("nomPer2mmmmmm");
+		/*Persona persona = new Persona();		
+		persona.setApellido("cast");
+		persona.setDocumento("37525615");
+		persona.setNacionalidad("Argentina");
+		persona.setNombres("ema");
 		persona.setId(5);
-		personaServi.guardar(persona);*/ //funciona correctamente
+		//personaServi.guardar(persona); //funciona correctamente
+		
 		//personaServi.eliminar(2); //funciona correctamente
-		//personaServi.modificar(persona); //todavia tiene error
+		personaServi.modificar(persona); //funciona 
 		//persona = personaServi.mostrar(1); //toavia con error
 		//System.out.println("nombre: "+ persona.getNombres());
+		*/
 		
-		//Usuario usuario = new Usuario();
-		/**long idd=5;
-		usuario.setApellidoReal("aaaa2");
-		usuario.setNombreReal("aaa2");
-		usuario.setNombreUsuario("aa2");
-		usuario.setPassword("a2");
-		usuario.setTipoUsuario("ADMIN2");
+		/*Usuario usuario = new Usuario();
+		usuario.setApellidoReal("colo");
+		usuario.setNombreReal("ema");
+		usuario.setNombreUsuario("colo12");
+		usuario.setPassword("1234");
+		usuario.setTipoUsuario("CONSULTOR");
 		//usuarioServi.guardar(usuario); //funciona correctamente
-		usuario.setId(idd);*/
-		//usuarioServi.modificar(usuario); //no anda todavia
+		usuario.setId(1);
+		usuarioServi.modificar(usuario); //funciona
 		//usuarioServi.eliminar(3);  //funciona ccorrectamente
-		
+		*/
 		/**Barrio barrio = new Barrio();
 		barrio.setNombre("San Pedrito");
 		barrioServi.crearBarrio(barrio); //funciona correctamente

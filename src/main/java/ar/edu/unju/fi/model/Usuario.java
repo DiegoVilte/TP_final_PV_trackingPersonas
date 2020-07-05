@@ -38,7 +38,7 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID")	
-	private Long id;
+	private long id;
 	
 	
 	//Se crean las columnas
@@ -175,7 +175,7 @@ public class Usuario {
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

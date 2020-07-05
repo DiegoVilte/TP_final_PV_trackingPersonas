@@ -30,20 +30,26 @@ public class PersonaServiceImp implements IPersonaService {
 
 	@Override
 	public Persona modificar(Persona persona) throws Exception{
-		Persona personaParaModificar = buscarPersona(persona.getId());
+				
+		Persona existingProduct = ipersona.findById(persona.getId()).orElse(null);
+        existingProduct.setApellido(persona.getApellido());
+        existingProduct.setNombres(persona.getNombres());
+        existingProduct.setDocumento(persona.getDocumento());
+        existingProduct.setNacionalidad(persona.getNacionalidad());
+        return ipersona.save(existingProduct);
+		/*Persona personaParaModificar = buscarPersona(persona.getId());
 		mapearPersona(persona, personaParaModificar);
-		return ipersona.save(personaParaModificar);
+		return ipersona.save(personaParaModificar);*/
 	}
 
 	@Override
-	public void eliminar(long id) {
+	public void eliminar(Long id) {
 		ipersona.deleteById(id);
 	}
 
 	@Override
-	public Persona mostrar(long id) {
-		Persona persona = ipersona.getOne(id);
-		return persona;
+	public Iterable<Persona> listar() {
+		return ipersona.findAll();
 	}
 	
 	public void mapearPersona(Persona persona, Persona modificado) {
