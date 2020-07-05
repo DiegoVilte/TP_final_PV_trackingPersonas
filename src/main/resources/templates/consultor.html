@@ -12,19 +12,146 @@
 <nav>
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
   		<li class="nav-item" role="presentation">
-    		<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
-    		 role="tab" aria-controls="home" aria-selected="true">circulacion por barrios</a>
+    		<a class="nav-link active" id="home-tab" data-toggle="tab" href="#circulacion"
+    		 role="tab" aria-controls="circulacion" aria-selected="true">circulacion por barrios</a>
   		</li>
   		<li class="nav-item" role="presentation">
-    		<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" 
-    		role="tab" aria-controls="profile" aria-selected="false">recorridos de persona</a>
+    		<a class="nav-link" id="profile-tab" data-toggle="tab" href="#recorrido" 
+    		role="tab" aria-controls="recorrido" aria-selected="false">recorridos de persona</a>
   		</li>
   		<li class="nav-item" role="presentation">
-    		<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" 
-    		role="tab" aria-controls="contact" aria-selected="false">incumplimientos</a>
+    		<a class="nav-link" id="contact-tab" data-toggle="tab" href="#incumplimientos" 
+    		role="tab" aria-controls="incumplimientos" aria-selected="false">incumplimientos</a>
   		</li>
 	</ul>
+	
+	<div class="tab-content">
+	  <div class="tab-pane active" id="circulacion" role="tabpanel">
+	  	<div class="form-row">
+		  	<div class="col-md-3 mb-3">
+		      <label for="idbarrio">Barrio</label>
+		      <select class="custom-select" id="idbarrio" required>
+		        <option selected disabled value="">Seleccione...</option>
+		        <option>...</option>
+		      </select>
+		    </div>
+		    <div class="col-md-3 mb-3">
+		      <label for="idfecha">Fecha</label>
+		      <input type="date" class="form-control" id="idlocalidad" required>
+		    </div>
+		    <div class="col-md-3 mb-3">
+		      <label for="idhora">Hora 1</label>
+		      <input type="time" class="form-control" id="idlocalidad" required>
+		    </div>
+		      <div class="col-md-3 mb-3">
+		      <label for="idhora">Hora 2</label>
+		      <input type="time" class="form-control" id="idlocalidad" required>
+		    </div>
+		  </div>
+		  <div class="form-row">
+		    	<select class="custom-select col-md-3 mb-3" id="idpersona" required>
+		        <option selected disabled value="">Seleccione DNI</option>
+		        <option>...</option>
+		      </select>
+		    </div>
+		  	<table class="table table-bordered" id="table-1">
+					  <caption>Lista de personas</caption>
+					  <thead>
+						  <tr>
+							  <th>Uso Tapa Boca</th>
+							  <th>Cumple terminacion Dni</th>
+							  <th>Posee permiso de circulacion</th>
+							  <th>Esta acompañado</th>
+							  				  </tr>
+					  </thead>
+					  <tbody>
+						  <tr  >
+							  <td>a</td>
+							  <td>b</td>
+							  <td>c</td>
+							  <td>d</td>
+							 
+						  </tr>
+					  </tbody>
+			</table>
+	  </div>
+
+	  
+	  <div class="tab-pane" id="recorrido" role="tabpanel">
+	  	<div class="form-row">	
+	  		<div class="col-md-3 mb-3">
+	      		<label for="iddni">DNI</label>
+	      		<input type="text" class="form-control" id="iddni">
+	    	</div>
+	  		<button class="btn btn-primary" type="submit">Buscar DNI</button>
+	 	 	<div class="col-md-3 mb-3">
+	      		<label for="idapellido">Apellido</label>
+	      		<input type="text" class="form-control" id="idapellido" disabled="disabled">
+	    	</div>
+	    	<div class="col-md-3 mb-3">
+	      		<label for="idnombre">Nombre</label>
+	      		<input type="text" class="form-control" id="idnombre" disabled="disabled">
+	    	</div>
+	    </div>	
+	    	<div style="margin-top: 20px;">
+			<table class="table table-bordered" id="table-recorrido">
+				<caption>listado de recorrido</caption>
+				<thead>
+					<tr>
+						<th>Barrio</th>
+						<th>Fecha</th>
+						<th>Hora</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>a</td>
+						<td>b</td>
+						<td>c</td>
+					</tr>
+				</tbody>
+			</table>
+	 	 </div>
+	 	 
+	  </div>
+	  
+	  <div class="tab-pane" id="incumplimientos" role="tabpanel">
+	  	<div class="col-md-3 mb-3">
+		  	<form>
+				  <div>
+				    <label for="bday">Seleccione fecha</label>
+				    <input type="date" id="bday" name="bday">
+				  </div>
+			</form>
+		  	<button class="btn btn-primary" type="submit">Buscar incumplimientos de norma sanitaria</button>
+		</div>
+		<table class="table table-bordered"	id="table-2">
+			<caption>personas que incumplen alguna norma sanitaria</caption>
+			<thead>
+				<tr>
+					<th>Apellido</th>
+					<th>Nombre</th>
+					<th>DNI</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>a</td>
+					<td>b</td>
+					<td>c</td>
+				</tr>
+			</tbody>
+		</table>
+	  </div>
+	 
+	</div>
+	
+	
 </nav>
+
+
+
+
 
 
 <div th:insert="layout/footer::footer"></div>
