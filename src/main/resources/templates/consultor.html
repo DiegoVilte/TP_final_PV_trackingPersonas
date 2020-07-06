@@ -10,6 +10,9 @@
 <body class="container">
 <div th:insert="layout/header::header"></div>
 <nav>
+<!--  --------------------------------------------------------------------------------------------  -->
+				<!-- -------------------LISTA DE PESTAÑAS------------------- -->
+<!--  --------------------------------------------------------------------------------------------  -->
 	<ul class="nav nav-tabs" id="myTab" role="tablist">
   		<li class="nav-item" role="presentation">
     		<a class="nav-link active" id="home-tab" data-toggle="tab" href="#circulacion"
@@ -26,6 +29,9 @@
 	</ul>
 	
 	<div class="tab-content">
+<!--  --------------------------------------------------------------------------------------------  -->
+<!--  ------------------------------------- PESTAÑA CIRCULACION POR BARRIO ---------------------------------------------------------------  -->
+<!--  --------------------------------------------------------------------------------------------  -->
 	  <div class="tab-pane active" id="circulacion" role="tabpanel">
 	  	<div class="form-row">
 		  	<div class="col-md-3 mb-3">
@@ -75,21 +81,24 @@
 					  </tbody>
 			</table>
 	  </div>
-
-	  
+<!--  --------------------------------------------------------------------------------------------  -->
+<!--   ----------------------- PESTAÑA RECORRIDO DE PERSONAS ------------------------------------- -->
+<!--  --------------------------------------------------------------------------------------------  -->
 	  <div class="tab-pane" id="recorrido" role="tabpanel">
 	  	<div class="form-row">	
 	  		<div class="col-md-3 mb-3">
 	      		<label for="iddni">DNI</label>
-	      		<input type="text" class="form-control" id="iddni">
+	      		<input type="search" class="form-control" id="iddni">
 	    	</div>
 	  		<button class="btn btn-primary" type="submit">Buscar DNI</button>
+	 	 	<!--  NOMBRE Y APELLIDO SE DEVERIAN AUTO RELLENAR DESPUES DE LA BUSQUEDA DE DNI -->
 	 	 	<div class="col-md-3 mb-3">
 	      		<label for="idapellido">Apellido</label>
 	      		<input type="text" class="form-control" id="idapellido" disabled="disabled">
 	    	</div>
 	    	<div class="col-md-3 mb-3">
 	      		<label for="idnombre">Nombre</label>
+	      		
 	      		<input type="text" class="form-control" id="idnombre" disabled="disabled">
 	    	</div>
 	    </div>	
@@ -114,7 +123,9 @@
 	 	 </div>
 	 	 
 	  </div>
-	  
+<!--  --------------------------------------------------------------------------------------------  -->
+<!--  ---------------------------- PESTAÑA INCUMPLIMIENTOS ---------------------------------------- -->
+<!--  --------------------------------------------------------------------------------------------  -->
 	  <div class="tab-pane" id="incumplimientos" role="tabpanel">
 	  	<div class="col-md-3 mb-3">
 		  	<form>
