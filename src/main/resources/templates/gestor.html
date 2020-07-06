@@ -21,8 +21,8 @@
 			<a id="lista-tab" class="nav-link" th:classappend="${listTab}" href="#lista" data-toggle="tab"
 			role="tab" aria-controls="lista" aria-selected="false">Lista de Usuarios</a></li>
 		<li class="nav-item">
-			<a id="formulario-tab2"	th:classappend="${formBarrio}" class="nav-link" href="#formularioB"
-			data-toggle="tab" role="tab" aria-controls="formularioB"	aria-selected="true">Formulario Barrio</a></li>
+			<a id="formulario-tab2"	th:classappend="${formTab2}" class="nav-link" href="#formularioB" 
+			data-toggle="tab" role="tab" aria-controls="formularioB" aria-selected="true">Formulario Barrio</a></li>
 		<li class="nav-item">
 			<a id="lista-tab2" class="nav-link" th:classappend="${listBarrio}" href="#listaB" data-toggle="tab"
 			role="tab" aria-controls="listaB" aria-selected="false">Lista de Barrios</a></li>
@@ -156,7 +156,74 @@
 					</div>
 				</div>
 			</div>	
+	
+	
+			<div class="tab-pane fade show" id="formularioB" th:classappend="${formTab2}" role="tabpanel"	aria-labelledby="formulario-tab2">
+				<div class="card">
+					<div class="card-header">
+						<h4>Barrio</h4>
+					</div>
+					<div class="card-body">
+					<!-- div para contener el formulario -->
+						<h3>Agregar Barrio</h3>
+						<div>
+							<div class="col">
+								<!-- form con th:object para trabajr sobre el obejto formusuario que es un objeto Usuario, th:action accion a 
+								ejecutar cuando se de click en el boton y busca el postMapint con ese identificador -->
+								
+								<form class="was-validated" role="form" th:object="${formBarrio}" 
+								th:action="@{/formularioBarrio2}" method="post">																
+								  <div class="form-row">
+								  	<!-- div con class col-md- mb para estableces el tamaño que ocupara en la pajina -->
+								    <div class="col-md-6 mb-3">
+								    	<!-- nombre que mostrara alado del input para guiar -->
+								      <label>Nombre:</label>
+								      <!-- input que recibe texto, th:field es para guardar en el objeto lo puesto en input -->
+								      <input type="text" class="form-control is-invalid" th:field="${formBarrio.nombre}">		      
+								    </div>
+								  </div>								  																  								  
+								  <!-- submit al hacer click pasa los datos al controller -->
+								  <input class="btn btn-primary" type="reset" value="cancelar">
+								  <button class="btn btn-primary" type="submit">aceptar</button>
+								</form>
+							</div>
+						</div>					
+
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade show" id="lista" role="tabpanel" th:classappend="${listBarrio}" aria-labelledby="lista-tab">
+				<div class="card">
+					<div class="card-header">
+						<h4>Listado de Barrios</h4>
+					</div>
+					<div class="card-body">
+						<table class="table table-striped table-dark">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">ID</th>
+									<th scope="col">Nombre</th>
+									<th scope="col">Tipo</th>
+									<th scope="col">borrar</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each = "barrio : ${barrios}">
+									<td th:text="${barrio.id}"></td>
+									<td th:text="${barrio.nombre}"></td>
+									<td><button href="#" th:onclick="'javascript:confirmarEliminar(\''+${barrio.id}+'\');'">borrar</button>
+									<a href="#" th:href="@{'/editarUsuario/'+${barrio.id}}">editar</a></button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>	
 	</div>
+	
+	
+	
+	
 	
 	
 	

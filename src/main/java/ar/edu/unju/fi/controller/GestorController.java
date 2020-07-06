@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import ar.edu.unju.fi.model.Barrio;
 import ar.edu.unju.fi.model.Usuario;
+import ar.edu.unju.fi.service.IBarrioService;
 import ar.edu.unju.fi.service.IUsuarioService;
 /**
  * 
@@ -23,6 +25,8 @@ public class GestorController {
 	
 	@Autowired
 	private IUsuarioService usuarioService;
+	@Autowired
+	private IBarrioService barrioService;
 	
 	@GetMapping("gestor")
 	public String gestor(Model model) {
@@ -91,5 +95,29 @@ public class GestorController {
 	@GetMapping("/cancelar")
 	public String cancelar(ModelMap model) {
 		return "redirect:/gestor";
+	}
+	@GetMapping("/formularioBarrio")
+	public String formularioBarrio(Model model) {
+		/**
+		 * se crea un nuevo Barrio , se lo manda ala pajina como "formusuario"
+		 */
+		model.addAttribute("formBarrio", new Barrio());
+		model.addAttribute("barrios", barrioService.obtenerBarrios());
+		model.addAttribute("formTab2", "active");
+		return "gestor";
+	}
+	@PostMapping("/formularioBarrio2")
+	public String crearBarrio(@ModelAttribute("formBarrio") Barrio barrio, ModelMap model) {
+		/**
+		 * guarda el barrio
+		 */
+		barrioService.crearBarrio(barrio);
+		/**
+		 * se crea un nuevo barrio para que los campos vuelvan a estar en blanco
+		 */
+		model.addAttribute("formBarrio", new Barrio());
+		model.addAttribute("usuarios", barrioService.obtenerBarrios());
+		model.addAttribute("listBarrio", "active");
+		return "gestor";
 	}
 }
