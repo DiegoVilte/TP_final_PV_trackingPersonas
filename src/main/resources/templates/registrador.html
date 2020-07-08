@@ -5,96 +5,103 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
-<body class="container">
-	<div th:insert="layout/header::header"></div>
-
-	<form class="container">
-	  <div class="form-row">
-	    <div class="col-md-6 mb-3">
-	      <label for="idapellido">Apellido</label>
-	      <input type="text" class="form-control" id="idapellido" value="Mark" required>
-	    </div>
-	    <div class="col-md-6 mb-3">
-	      <label for="idnombre">Nombres</label>
-	      <input type="text" class="form-control" id="idnombre" value="Otto" required>
-	    </div>
-	  </div>
-	  <div class="form-row">
-	    <div class="col-md-6 mb-3">
-	      <label for="iddni">DNI</label>
-	      <input type="number" class="form-control" id="iddni" required>
-	    </div>
-	    <div class="col-md-3 mb-3">
-	      <label for="idnacionalidad">Nacionalidad</label>
-	      <select class="custom-select" id="idnacionalidad" required>
-	        <option selected disabled value="">Seleccione...</option>
-	        <option>...</option>
-	      </select>
-	    </div>
-	    <div class="col-md-3 mb-3">
-	      <label for="idlocalidad">Localidad</label>
-	      <input type="text" class="form-control" id="idlocalidad" required>
-	    </div>
-	    <div class="col-md-3 mb-3">
-	      <label for="idlugar">Lugar de Registro</label>
-	      <input type="text" class="form-control" id="idlugar" required>
-	    </div>
-	  </div>
-	  <button class="btn btn-primary" type="submit">Cargar Registro</button>
-	</form>
+	<body class="container">
+		<div th:insert="layout/header::header"></div>
+	<form class="container"> 
+		<!-- ------------------------------------------------------------------------------------------- -->
+		<!-- ***************************** Agregar Registro ****************************************** -->
+		<!-- ------------------------------------------------------------------------------------------- -->
+		<h5>Agregar nuevo registro</h5>
+		  	<div class="form-row">
+			  	<div class="col-md-3 mb-3">
+			      <label for="idbarrio">Barrio</label>
+			      <select class="custom-select" id="idbarrio" required>
+			        <option selected disabled value="">Seleccione...</option>
+			        <option>...</option>
+			      </select>
+			    </div>
+			    <div class="col-md-3 mb-3">
+			      <label >Lugar de Registro</label>
+			      <input type="text" class="form-control" id="idlugarregi" required>
+			    </div>
+			  
+			  </div>
+		<!-- -------------------------------------------------------------------------- -->
+		<!-- ***************************** Persona ************************************ -->
+		<!-- -------------------------------------------------------------------------- -->
+			  <div class="form-row">
+			    	 <div class="col-md-3 mb-3">
+				      <label >DNI</label>
+				      <input type="text" class="form-control" id="idlugarregi" required>
+				     </div>
+				     <div class="col-md-3 mb-3">
+				      <label >Apellido</label>
+				      <input type="text" class="form-control" id="idapellido" required>
+				     </div>
+				     <div class="col-md-3 mb-3">
+				      <label >Nombre</label>
+				      <input type="text" class="form-control" id="idnombre" required>
+				     </div>
+				     <div class="col-md-3 mb-3">
+				      <label >Nacioaldad</label>
+				      <input type="text" class="form-control" id="idnacionalidad" required>
+				     </div>
+			   
+			  </div>
+		<!-- -------------------------------------------------------------------------- -->
+		<!-- ********************* validador Condicion Sanitaria ********************** -->
+		<!-- -------------------------------------------------------------------------- -->
+			  <div class="form-row">
+			    	 <div class="col-md-3 mb-3">
+				      <label >Usa tapa bocas</label>
+				      <input type="checkbox" class="form-control" id="idtapabocas" required>
+				     </div>
+				     <div class="col-md-3 mb-3">
+				      <label >cumple termincion de DNI</label>
+				      <input type="checkbox" class="form-control" id="idterminaciondni" required>
+				     </div>
+				     <div class="col-md-3 mb-3">
+				      <label >Posee permiso de Circulacion</label>
+				      <input type="checkbox" class="form-control" id="idpermisocirculacion" required>
+				     </div>
+				     <div class="col-md-3 mb-3">
+				      <label >Esta acompañado</label>
+				      <input type="checkbox" class="form-control" id="idacompañado" required>
+				     </div>
+			   
+			  </div>
+			  <div>
+			  	<button class="btn btn-primary" type="submit">Agregar registro</button>
+			  </div>
+		</form> 
+			 
+		<h5>Lista de Registros</h5>
+		<!-- ------------------------------------------------------------------------------------------- -->
+		<!-- ***************************** Tabla de Registros ****************************************** -->
+		<!-- ------------------------------------------------------------------------------------------- -->
+		
+		<table class="table table-bordered" id="tablaRegistro">
+			<caption>Listado de Registros</caption>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Barrio</th>
+					<th>Lugar de resgistro</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>a</td>
+					<td>b</td>
+					<td>c</td>
+				</tr>
+			</tbody>
+		</table>
 	
-	<h4>Agregar acompañante</h4>
-	<form class="container">
-	  <div class="form-row">
-	    <div class="col-md-6 mb-3">
-	      <label for="idapellido">Apellido</label>
-	      <input type="text" class="form-control" id="idapellido" value="Mark">
-	    </div>
-	    <div class="col-md-6 mb-3">
-	      <label for="idnombre">Nombres</label>
-	      <input type="text" class="form-control" id="idnombre" value="Otto">
-	    </div>
-	  </div>
-	  <div class="form-row">
-	    <div class="col-md-6 mb-3">
-	      <label for="iddni">DNI</label>
-	      <input type="text" class="form-control" id="iddni">
-	    </div>
-	    <div class="col-md-3 mb-3">
-	      <label for="idnacionalidad">Nacionalidad</label>
-	      <select class="custom-select" id="idnacionalidad">
-	        <option selected disabled value="">Seleccione...</option>
-	        <option>...</option>
-	      </select>
-	    </div>
-	  	<button class="btn btn-primary" type="submit">Agregar acompañante</button>
-	</form>
-	
-	<h5>Lista de acompañantes agregados</h5>
-	<table class="table">
-	  <caption>Lista de acompañantes</caption>
-	  <thead>
-	    <tr>
-	      <th scope="col">DNI</th>
-	      <th scope="col">Apellido</th>
-	      <th scope="col">Nombres</th>
-	      <th scope="col">Nacionalidad</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	    <tr>
-	      <th scope="row">38053856</th>
-	      <td>Mark</td>
-	      <td>Otto</td>
-	      <td>argentino</td>
-	    </tr>
-	  </tbody>
-	</table>
-
-<div th:insert="layout/footer::footer"></div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-</body>
+		<div th:insert="layout/footer::footer"></div>
+		
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	</body>
 </html>
