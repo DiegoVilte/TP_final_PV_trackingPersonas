@@ -109,7 +109,7 @@ public class GestorController {
 		model.addAttribute("barrios", barrioService.obtenerBarrios());
 		model.addAttribute("formTab2", "active");
 		return "gestorBarrio";
-	}
+	}*/
 	@PostMapping("/formularioBarrio")
 	public String crearBarrio(@ModelAttribute("formBarrio") Barrio barrio, ModelMap model) {
 		
@@ -119,6 +119,6 @@ public class GestorController {
 		model.addAttribute("barrios", barrioService.obtenerBarrios());
 		model.addAttribute("listBarrio", "active");
 		return "gestor";
-	}*/
+	}
 	
 }
