@@ -29,47 +29,51 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-@Table (name = "registrosTrackins")
+@Table(name = "registrosTrackins")
 // declaracion de la claseRegistroTracking
 public class RegistroTracking {
-	
-	//Se asocia a la ID como clave primaria
+
+	// Se asocia a la ID como clave primaria
 	@Id
-	@GeneratedValue ( strategy = GenerationType.IDENTITY)
-	@Column (name="ID_REGISTROTRACKING")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_REGISTROTRACKING")
 	private long id;
-	@Column(name="FECHA_HORA")
+	@Column(name = "FECHA_HORA")
 	private LocalDateTime fechaHora; // fecha de registro tracking
 	@Autowired
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_BARRIO")
 	private Barrio localidad; // localidad de registro tracking
-	
-	//@OneToMany(mappedBy ="registrosTracking")//, cascade = CascadeType.ALL)
-	//private List<ValidadorCondicionSanitaria> vcs=new ArrayList<>(); // lista de validaciones de condicion sanitaria
-	
-	@Column (name="DETALLE_LUGAR_REGISTRO")
+	@Column(name = "VALIDADORES")
+	@OneToMany(fetch = FetchType.LAZY) // , cascade = CascadeType.ALL)
+	private List<ValidadorCondicionSanitaria> validadoresCS = new ArrayList<>(); // lista de validaciones de condicion
+																					// // sanitaria
+	@Column(name = "DETALLE_LUGAR_REGISTRO")
 	private String detalleLugarRegistro;// detalle de registro tracking
 
 //---------CONSTRUCTORES----------------------------
 	/**
 	 * 
 	 */
+
 	public RegistroTracking() {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
+	 * @param id
 	 * @param fechaHora
 	 * @param localidad
-	 * @param vcs
+	 * @param validadoresCS
 	 * @param detalleLugarRegistro
 	 */
-	public RegistroTracking(LocalDateTime fechaHora, Barrio localidad, List<ValidadorCondicionSanitaria> vcs,
-			String detalleLugarRegistro) {
+	public RegistroTracking(long id, LocalDateTime fechaHora, Barrio localidad,
+			List<ValidadorCondicionSanitaria> validadoresCS, String detalleLugarRegistro) {
+		super();
+		this.id = id;
 		this.fechaHora = fechaHora;
 		this.localidad = localidad;
-		//this.vcs = vcs;
+		this.validadoresCS = validadoresCS;
 		this.detalleLugarRegistro = detalleLugarRegistro;
 	}
 
@@ -80,7 +84,6 @@ public class RegistroTracking {
 	public LocalDateTime getFechaHora() {
 		return fechaHora;
 	}
-
 
 	/**
 	 * @param fechaHora the fechaHora to set
@@ -118,20 +121,6 @@ public class RegistroTracking {
 	}
 
 	/**
-	 * @return the vcs
-	 */
-	//public List<ValidadorCondicionSanitaria> getVcs() {
-	//	return vcs;
-	//}
-
-	/**
-	 * @param vcs the vcs to set
-	 */
-	//public void setVcs(List<ValidadorCondicionSanitaria> vcs) {
-	//	this.vcs = vcs;
-	//}
-
-	/**
 	 * @return the id
 	 */
 	public long getId() {
@@ -144,8 +133,25 @@ public class RegistroTracking {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-	
-	
+
+	/**
+	 * @return the validadoresCS
+	 */
+	public List<ValidadorCondicionSanitaria> getValidadoresCS() {
+		return validadoresCS;
+	}
+
+	/**
+	 * @param validadoresCS the validadoresCS to set
+	 */
+	public void setValidadoresCS(List<ValidadorCondicionSanitaria> validadoresCS) {
+		this.validadoresCS = validadoresCS;
+	}
+
+	@Override
+	public String toString() {
+		return "RegistroTracking [id=" + id + ", fechaHora=" + fechaHora + ", localidad=" + localidad
+				+ ", validadoresCS=" + validadoresCS + ", detalleLugarRegistro=" + detalleLugarRegistro + "]";
+	}
 
 }

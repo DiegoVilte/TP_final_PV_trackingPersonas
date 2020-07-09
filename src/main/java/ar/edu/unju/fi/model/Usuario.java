@@ -12,8 +12,6 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-
-
 /**
  * @author Diego
  *
@@ -23,38 +21,23 @@ import org.springframework.stereotype.Component;
 //
 @Component
 @Entity
-@Table (name = "usuario")
+@Table(name = "usuario")
 public class Usuario {
-	
-	
-	//Se asocia a la ID como clave primaria
-	//@Id
-	//@GeneratedValue ( strategy = GenerationType.IDENTITY)
-	//@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-	
-	/**@Column (name="ID_USUARIO")
-	private long id;*/
-	
+	// Se asocia a la ID como clave primaria
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="ID")	
+	@Column(name = "ID_USUARIO")
 	private long id;
-	
-	
-	//Se crean las columnas
-	@Column //(name="NOMBREUSUARIO", length = 150, nullable = true)
+	// Se crean las columnas
+	@Column(name = "NOMBRE_USUARIO")
 	private String nombreUsuario; // nombre de usuario
-	
-	@Column //(name="PASSWORD", length = 150, nullable = true)
+	@Column(name = "PASSWORD")
 	private String password; // password de usuario
-	
-	@Column //(name="NOMBREREAL", length = 150, nullable = true)
+	@Column(name = "NOMBRE_REAL")
 	private String nombreReal; // nombre real de usuario
-	
-	@Column //(name="APELLIDO", length = 150, nullable = true)
+	@Column(name = "APELLIDO")
 	private String apellidoReal; // apellido real de uauario
-	
-	@Column //(name="TIPOUSUARIO", length = 150, nullable = true)
+	@Column(name = "TIPOUSUARIO")
 	private String tipoUsuario; // tipo de usuario
 
 //--------------CONSTRUCTORES-----------------//
@@ -179,5 +162,4 @@ public class Usuario {
 		this.id = id;
 	}
 
-	
 }

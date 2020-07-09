@@ -5,13 +5,15 @@ package ar.edu.unju.fi.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -20,28 +22,28 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Entity
-@Table (name = "persona")
+@Table(name = "persona")
 public class Persona {
 
 	@Id
-	@GeneratedValue ( strategy = GenerationType.IDENTITY)
-	@Column (name="ID_PERSONA")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_PERSONA")
 	private long id;
-	
-	@Column (name = "DOCUMENTO", length = 10, nullable = true)
+
+	@Column(name = "DOCUMENTO", length = 10, nullable = true)
 	private String documento;
-	
-	@Column (name = "APELLIDO", length = 150, nullable = true)
+
+	@Column(name = "APELLIDO", length = 150, nullable = true)
 	private String apellido;
-	
-	@Column (name = "NOMBRE", length = 10, nullable = true)
+
+	@Column(name = "NOMBRE", length = 10, nullable = true)
 	private String nombres;
-	
-	@Column (name = "NACIONALIDAD", length = 10, nullable = true)
+
+	@Column(name = "NACIONALIDAD", length = 10, nullable = true)
 	private String nacionalidad;
-	//@OneToMany
-	//@JoinColumn(name="ID_VCS")
-	//private long id_vcs;
+
+	@OneToOne(mappedBy = "persona")
+	private ValidadorCondicionSanitaria validador;
 
 //---------------CONSTRUCTORES----------------------
 
@@ -52,26 +54,24 @@ public class Persona {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
 	/**
- * @param id
- * @param documento
- * @param apellido
- * @param nombres
- * @param nacionalidad
- * @param id_vcs
- */
-public Persona(long id, String documento, String apellido, String nombres, String nacionalidad, long id_vcs) {
-	this.id = id;
-	this.documento = documento;
-	this.apellido = apellido;
-	this.nombres = nombres;
-	this.nacionalidad = nacionalidad;
-	//this.id_vcs = id_vcs;
-}
-
-
+	 * @param id
+	 * @param documento
+	 * @param apellido
+	 * @param nombres
+	 * @param nacionalidad
+	 * @param validador
+	 */
+	public Persona(long id, String documento, String apellido, String nombres, String nacionalidad,
+			ValidadorCondicionSanitaria validador) {
+		super();
+		this.id = id;
+		this.documento = documento;
+		this.apellido = apellido;
+		this.nombres = nombres;
+		this.nacionalidad = nacionalidad;
+		this.validador = validador;
+	}
 
 	// -----------METODOS ACCESORES----------------------
 
@@ -139,23 +139,24 @@ public Persona(long id, String documento, String apellido, String nombres, Strin
 		this.id = id;
 	}
 
-
+	/**
+	 * @return the validador
+	 */
+	public ValidadorCondicionSanitaria getValidador() {
+		return validador;
+	}
 
 	/**
-	 * @return the id_vcs
+	 * @param validador the validador to set
 	 */
-	//public long getId_vcs() {
-	//	return id_vcs;
-	//}
+	public void setValidador(ValidadorCondicionSanitaria validador) {
+		this.validador = validador;
+	}
 
+	@Override
+	public String toString() {
+		return "Persona [id=" + id + ", documento=" + documento + ", apellido=" + apellido + ", nombres=" + nombres
+				+ ", nacionalidad=" + nacionalidad + ", validador=" + validador + "]";
+	}
 
-
-	/**
-	 * @param id_vcs the id_vcs to set
-	 */
-	//public void setId_vcs(long id_vcs) {
-	//	this.id_vcs = id_vcs;
-	//}
-
-	
 }
