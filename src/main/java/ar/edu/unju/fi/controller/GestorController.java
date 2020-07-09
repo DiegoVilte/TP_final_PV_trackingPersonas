@@ -37,6 +37,10 @@ public class GestorController {
 		model.addAttribute("formusuario", new Usuario());
 		model.addAttribute("usuarios", usuarioService.listar());
 		model.addAttribute("formTab", "active");
+		
+		model.addAttribute("formBarrio", new Barrio());
+		model.addAttribute("barrios", barrioService.obtenerBarrios());
+		
 		return "gestor";
 	}
 	
