@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+<body class="container">
+<!-- se hace referencia a el encabezado -->
+<div th:insert="layout/header::header"></div>
+
+<!-- barra de navegacion de la pajina gestorBarrio -->
+<ul class="nav nav-tabs" role="tablist">
+	<!-- link a seccion de registro de barrio, formularioB es para hacer referencia al form -->
+	<li class="nav-item">
+		<a id="formulario-tab2"	th:classappend="${formTab2}" class="nav-link" href="#formularioB"
+			data-toggle="tab" role="tab" aria-controls="formularioB" aria-selected="true">Formulario Barrio</a></li>
+	<!-- lick a lista de barrios, listaB es para referenciar la lista -->
+	<li class="nav-item">
+		<a id="lista-tabB" class="nav-link" th:classappend="${listBarrio}" href="#listaB" data-toggle="tab"
+			role="tab" aria-controls="listaB" aria-selected="false">Lista de Barrios</a></li> 
+</ul>
+	 <div class="tab-content">
+		<div class="tab-pane fade show" id="formularioB" th:classappend="${formTab2}" role="tabpanel" aria-labelledby="formulario-tab2">
+				<div class="card">
+					<!-- class para que se tome como encabezado -->
+					<div class="card-header">
+						<h4>Barrio</h4>
+					</div>
+					<!-- class para que se tome como el body -->
+					<div class="card-body">
+						<h3>Agregar Barrio</h3>
+						<div>
+							<div class="col">
+								<!-- formulario de barrio , formBarrio es de tipo Barrio se usa para cargar los daos en el controller 
+								si el modoEditar es true el post que se ejecuta es el /editarBarrio, de lo contrario /gestorBarrio-->							
+								<form class="was-validated" role="form" th:object="${formBarrio}" 
+								th:action="${modoEditar}?@{/editarBarrio}:@{/gestorBarrio}" method="post">	
+								
+								<!-- este input se utiliza para que no se modifique el id , esto para si modoEditar es true-->
+								<input class="form-control" type=hidden th:field="${formBarrio.id}" th:if="${modoEditar}">
+																	
+								  <div class="form-row">
+								    <div class="col-md-6 mb-6">
+								    	<!-- input para que se ingrese el nombre del barrio el cual se guarda en formBarrio -->
+								      <label>Nombre:</label>
+								      <input type="text" th:field="${formBarrio.nombre}">		      
+								    </div>
+								  </div>
+								  <!-- botones para aseptar y cancelar -->								  																  								  
+								  <input class="btn btn-primary" type="reset" value="cancelar">
+								  <button class="btn btn-primary" type="submit">aceptar</button>
+								</form>
+							</div>
+						</div>					
+
+					</div>
+				</div>
+			</div>
+			<!-- divicion para la lista -->
+			<div class="tab-pane fade show" id="listaB" role="tabpanel" th:classappend="${listBarrio}" aria-labelledby="lista-tabB">
+				<div class="card">
+					<!-- class para que lo tome como encabezado -->
+					<div class="card-header">
+						<h4>Listado de Barrios</h4>
+					</div>
+					<!-- class para que lo tome como el body -->
+					<div class="card-body">
+						<!-- class para estilo de boostrap -->
+						<table class="table table-striped table-dark">
+							<!-- encabezados de la tabla -->
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">ID</th>
+									<th scope="col">Nombre</th>
+									<th scope="col">borrar</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- barrios trae la lista de barrios desde el controllery y se guarda cada uno en barrio
+								para generar la tabla con todos los barrios -->
+								<tr th:each = "barrio : ${barrios}">
+									<td th:text="${barrio.id}"></td>
+									<td th:text="${barrio.nombre}"></td>
+									<!-- el button al hacer click  llama al savascript confirmarEliminacion()y me manda el id del barrio a borrar 
+									el enlase hace referencia a el getMapping(/editarBarrio{id}) con el id del barrio-->
+									<td><button href="#" th:onclick="'javascript:confirmarEliminar(\''+${barrio.id}+'\');'">borrar</button>
+									<a href="#" th:href="@{'/editarBarrio/'+${barrio.id}}">editar</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div> 
+		
+		<!-- MODAL DE BORRAR -->
+		<div class="modal fade" id="modalBorrar" tabindex="-1"	role="dialog" aria-labelledby="borrarTitulo"	aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<!-- titulo del modal -->
+						<h5 class="modal-title" id="borrarTitulo">Confirmar Eliminacion</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+						<input type="hidden" id="imputId"/>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary"	data-dismiss="modal">Cancelar</button>
+							<button type="button" class="btn btn-primary" th:onclick="eliminarBarrio()">Borrar Barrio</button>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- SECCION PARA SCRIPTS -->	
+<script type="text/javascript">
+//llama al modal y le pasa el id mediante imputId
+function confirmarEliminar(id){
+	$('#modalBorrar').modal('show');
+	$("#imputId").val(id);
+}
+//llama al getMapping(eliminarBarrio) con el id del barrio
+function eliminarBarrio(){
+	//se guarda en la variable id , el id que se paso mediante el imputId
+	var id = $("#imputId").val();
+    window.location = "eliminarBarrio/"+id;
+}
+</script>	
+
+<!-- se inserta el pie de pajina -->	
+<div th:insert="layout/footer::footer"></div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
