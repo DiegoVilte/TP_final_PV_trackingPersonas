@@ -220,5 +220,9 @@ public class GestorController {
 		model.addAttribute("modoEditar", "false");
 		return "gestorBarrio";
 	}
+	@GetMapping("/cancelarBarrio")
+	public String cancelarBarrio(ModelMap model) {
+		return "redirect:/gestorBarrio";
+	}
 	
 }
