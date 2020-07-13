@@ -6,6 +6,7 @@ package ar.edu.unju.fi.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -40,13 +41,15 @@ public class RegistroTracking {
 	private long id;
 	@Column(name = "FECHA_HORA")
 	private LocalDateTime fechaHora; // fecha de registro tracking
+	
 	@Autowired
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_BARRIO")
 	private Barrio localidad; // localidad de registro tracking
+	
 	@Column(name = "VALIDADORES")
-	@OneToMany(fetch = FetchType.LAZY) // , cascade = CascadeType.ALL)
-	private List<ValidadorCondicionSanitaria> validadoresCS = new ArrayList<>(); // lista de validaciones de condicion
+	@OneToMany(mappedBy ="registroTracking",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<ValidadorCondicionSanitaria> validadoresCS = new ArrayList<ValidadorCondicionSanitaria>(); // lista de validaciones de condicion
 																					// // sanitaria
 	@Column(name = "DETALLE_LUGAR_REGISTRO")
 	private String detalleLugarRegistro;// detalle de registro tracking

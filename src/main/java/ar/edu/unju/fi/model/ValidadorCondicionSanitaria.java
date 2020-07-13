@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
+//import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -33,14 +33,18 @@ public class ValidadorCondicionSanitaria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_VCS")
 	private long id;
+	
 	@Column(name = "TAPA_BOCA")
 	private boolean usaTapabocas;
 	@Column(name = "CUMPLE_TERM_DNI")
 	private boolean cumpleTerminacionDNI;
+	@Column (name="PERMISO_CIRCULACION")
+	private boolean poseePermisoCirculacion;
 	@Column(name = "ESTA_ACOMPAÑADO")
 	private boolean estaAcompañado;
+	
 	@Autowired
-	  @OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_PERSONA")
 	private Persona persona;
 
@@ -50,31 +54,36 @@ public class ValidadorCondicionSanitaria {
 	private RegistroTracking registroTracking;
 
 //-------------CONSTRUCTORES---------------------
-	/**
+	/**Constructor sin parametros
 	 * 
 	 */
 	public ValidadorCondicionSanitaria() {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
+	/**Constructor sobrecargado o con parametros
 	 * @param id
-	 * @param persona
 	 * @param usaTapabocas
 	 * @param cumpleTerminacionDNI
+	 * @param poseePermisoCirculacion
 	 * @param estaAcompañado
+	 * @param persona
 	 * @param registroTracking
 	 */
-	public ValidadorCondicionSanitaria(long id, Persona persona, boolean usaTapabocas, boolean cumpleTerminacionDNI,
-			boolean estaAcompañado, RegistroTracking registroTracking) {
-		super();
-		this.id = id;
-		this.persona = persona;
-		this.usaTapabocas = usaTapabocas;
-		this.cumpleTerminacionDNI = cumpleTerminacionDNI;
-		this.estaAcompañado = estaAcompañado;
-		this.registroTracking = registroTracking;
+	public ValidadorCondicionSanitaria(long id, boolean usaTapabocas, boolean cumpleTerminacionDNI,
+		boolean poseePermisoCirculacion, boolean estaAcompañado, Persona persona, RegistroTracking registroTracking) {
+	super();
+	this.id = id;
+	this.usaTapabocas = usaTapabocas;
+	this.cumpleTerminacionDNI = cumpleTerminacionDNI;
+	this.poseePermisoCirculacion = poseePermisoCirculacion;
+	this.estaAcompañado = estaAcompañado;
+	this.persona = persona;
+	this.registroTracking = registroTracking;
+	
 	}
+
+
 
 	// -------------METODOS ACCESORES-----------------
 	/**
@@ -146,12 +155,35 @@ public class ValidadorCondicionSanitaria {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	
+
+	public boolean isPoseePermisoCirculacion() {
+		return poseePermisoCirculacion;
+	}
+
+	public void setPoseePermisoCirculacion(boolean poseePermisoCirculacion) {
+		this.poseePermisoCirculacion = poseePermisoCirculacion;
+	}
+
+	public RegistroTracking getRegistroTracking() {
+		return registroTracking;
+	}
+
+	public void setRegistroTracking(RegistroTracking registroTracking) {
+		this.registroTracking = registroTracking;
+	}
 
 	@Override
 	public String toString() {
-		return "ValidadorCondicionSanitaria [id=" + id + ", persona=" + persona + ", usaTapabocas=" + usaTapabocas
-				+ ", cumpleTerminacionDNI=" + cumpleTerminacionDNI + ", estaAcompañado=" + estaAcompañado
-				+ ", registroTracking=" + registroTracking + "]";
+		return "ValidadorCondicionSanitaria [id=" + id + ", usaTapabocas=" + usaTapabocas + ", cumpleTerminacionDNI="
+				+ cumpleTerminacionDNI + ", poseePermisoCirculacion=" + poseePermisoCirculacion + ", estaAcompañado="
+				+ estaAcompañado + ", persona=" + persona + ", registroTracking=" + registroTracking + "]";
 	}
+	
+	
+	
+
+	
 
 }

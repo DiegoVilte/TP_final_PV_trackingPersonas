@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.trackpersonas;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import ar.edu.unju.fi.service.PersonaServiceImp;
 import ar.edu.unju.fi.service.BarrioServiceImp;
 import ar.edu.unju.fi.service.IUsuarioService;
 import ar.edu.unju.fi.service.UsuarioServiceImp;
+import ar.edu.unju.fi.repository.IBarrioDAO;
 
 @SpringBootTest
 class TrackingPersonasApplicationTests {
@@ -36,9 +38,12 @@ class TrackingPersonasApplicationTests {
 	@Autowired
 	private IPersonaDAO personaDAO;
 	@Autowired
-	private IRegistroTrackingDAO RTDAO;
+	private IRegistroTrackingDAO registroDAO;
 	@Autowired
-	private IValidadorCondicionSanitariaDAO VCDAO;
+	private IValidadorCondicionSanitariaDAO vcsDAO;
+	@Autowired
+	private IBarrioDAO barrioDAO; 
+	
 	
 	@Test
 	void contextLoads() throws Exception {
@@ -92,18 +97,65 @@ class TrackingPersonasApplicationTests {
 		persona.setNombres("nomPer");
 		personaDAO.save(persona);
 		
-		RegistroTracking RT = new RegistroTracking();
-		RT.setDetalleLugarRegistro("lugarR");
-		RT.setFechaHora(LocalDateTime.now());
-		RTDAO.save(RT);
+		RegistroTracking reg = new RegistroTracking();
+		reg.setDetalleLugarRegistro("lugarR");
+		reg.setFechaHora(LocalDateTime.now());
+		registroDAO.save(RT);
 		
-		ValidadorCondicionSanitaria VC = new ValidadorCondicionSanitaria();
-		VC.setCumpleTerminacionDNI(true);
-		VC.setEstaAcompañado(false);
-		//VC.setPersona(persona);
-		VC.setUsaTapabocas(true);
-		VCDAO.save(VC);
+		ValidadorCondicionSanitaria vc = new ValidadorCondicionSanitaria();
+		vc.setCumpleTerminacionDNI(true);
+		vc.setEstaAcompañado(false);
+		//vc.setPersona(persona);
+		vc.setUsaTapabocas(true);
+		vcsDAO.save(VC);
 	*/
+					// otro modelo de prueba 
+		
+		Barrio barrio1 = new Barrio();
+		barrio1.setNombre("Cuyaya");
+		barrioDAO.save(barrio1); 
+		
+		Persona personax = new Persona();
+		personax.setApellido("Lino");
+		personax.setNombres("Dario");
+		personax.setDocumento("55555555");
+		personax.setNacionalidad("Argentina");
+
+		
+		Optional<Barrio> unBarrio = barrioDAO.findById(Long.valueOf("1"));
+
+
+		
+		
+		
+		RegistroTracking registro = new RegistroTracking();
+		registro.setFechaHora(LocalDateTime.now());
+		registro.setDetalleLugarRegistro("Entrada al Barrio Cuyaya");
+		unBarrio.ifPresent(barrio -> {
+		    registro.setLocalidad(barrio);
+		});
+
+		ValidadorCondicionSanitaria validador01 = new ValidadorCondicionSanitaria();
+		validador01.setCumpleTerminacionDNI(true);
+		validador01.setEstaAcompañado(false);
+		validador01.setPoseePermisoCirculacion(true);
+		validador01.setUsaTapabocas(true);
+		validador01.setRegistroTracking(registro);
+
+		ValidadorCondicionSanitaria validador02 = new ValidadorCondicionSanitaria();
+		validador02.setCumpleTerminacionDNI(true);
+		validador02.setEstaAcompañado(false);
+		validador02.setPoseePermisoCirculacion(true);
+		validador02.setUsaTapabocas(true);
+		validador02.setRegistroTracking(registro);
+					
+		
+		registro.getValidadoresCS().add(validador01);
+		registro.getValidadoresCS().add(validador02);
+		
+		registroDAO.save(registro);
+			
+		
 	}
 
 }
