@@ -32,9 +32,10 @@ public class Barrio {
 	private long id;
 	@Column(name = "NOMBRE")
 	private String nombre;
-	@Column(name = "registros")
-	@OneToMany(fetch = FetchType.EAGER)
-	private List<RegistroTracking> registros;
+	//@Column(name = "registros")
+	
+	//@OneToMany(fetch = FetchType.EAGER)
+	//private List<RegistroTracking> registros;
 //-------CONSTRUCTORES---------------
 
 	/**
@@ -49,11 +50,10 @@ public class Barrio {
 	 * @param nombre
 	 * @param registros
 	 */
-	public Barrio(long id, String nombre, List<RegistroTracking> registros) {
+	public Barrio(long id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.registros = registros;
 	}
 
 //---------METODOS ACCESORES--------------	
@@ -86,23 +86,5 @@ public class Barrio {
 		this.id = id;
 	}
 
-	/**
-	 * @return the registros
-	 */
-	public List<RegistroTracking> getRegistros() {
-		return registros;
-	}
-
-	/**
-	 * @param registros the registros to set
-	 */
-	public void setRegistros(List<RegistroTracking> registros) {
-		this.registros = registros;
-	}
-
-	@Override
-	public String toString() {
-		return "Barrio [id=" + id + ", nombre=" + nombre + ", registros=" + registros + "]";
-	}
 
 }

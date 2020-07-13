@@ -47,8 +47,8 @@ public class RegistroTracking {
 	@JoinColumn(name = "ID_BARRIO")
 	private Barrio localidad; // localidad de registro tracking
 	
-	@Column(name = "VALIDADORES")
-	@OneToMany(mappedBy ="registroTracking",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	//@Column(name = "VALIDADORES")
+	@OneToMany(mappedBy ="registroTracking", cascade = CascadeType.ALL)
 	private List<ValidadorCondicionSanitaria> validadoresCS = new ArrayList<ValidadorCondicionSanitaria>(); // lista de validaciones de condicion
 																					// // sanitaria
 	@Column(name = "DETALLE_LUGAR_REGISTRO")
